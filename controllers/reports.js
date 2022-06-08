@@ -48,6 +48,7 @@ exports.postReport = (req, res, next) => {
                     .then((report) => {
                         const responseBody = {
                             reportID: report._id,
+                            message: "New Report Created",
                             status: "success",
                         };
 
@@ -71,6 +72,7 @@ exports.postReport = (req, res, next) => {
                     .then((report) => {
                         const responseBody = {
                             reportID: report._id,
+                            message: "Report Updated",
                             status: "success",
                         };
 
@@ -96,7 +98,8 @@ exports.getReport = (req, res, next) => {
         .then((report) => {
             if (!report) {
                 const responseBody = {
-                    status: "Report not Found!",
+                    message: "Report not Found!",
+                    status: "Failed",
                 };
 
                 res.setHeader("Content-Type", "application/json");
