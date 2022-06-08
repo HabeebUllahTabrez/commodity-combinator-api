@@ -66,6 +66,7 @@ exports.postReport = (req, res, next) => {
 
                 // pushing new user in the array
                 report.users.push(userID);
+                report.users = [...new Set(report.users)];
 
                 report
                     .save()
