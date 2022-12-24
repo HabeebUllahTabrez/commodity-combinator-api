@@ -8,6 +8,9 @@ const router = express.Router();
 router.post("/reports", reportsController.postReport);
 
 // to get a particular commodity report based on report id in query param
-router.get("/reports", reportsController.getReport);
+router.get("/report/:reportID", reportsController.getReport);
+
+// to get all the reports
+router.get("/reports", reportsController.getAllReports);
 
 module.exports = router;

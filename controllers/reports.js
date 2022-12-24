@@ -92,7 +92,7 @@ exports.postReport = (req, res, next) => {
 
 // function to fetch and send a single alphabet
 exports.getReport = (req, res, next) => {
-    const reportId = req.query.reportID;
+    const reportId = req.params.reportID;
     // console.log(reportId);
 
     Report.findById(reportId)
@@ -100,6 +100,29 @@ exports.getReport = (req, res, next) => {
             if (!report) {
                 const responseBody = {
                     message: "Report not Found!",
+                    status: "Failed",
+                };
+
+                res.setHeader("Content-Type", "application/json");
+                return res.send(JSON.stringify(responseBody));
+            }
+            res.setHeader("Content-Type", "application/json");
+            res.send(JSON.stringify(report));
+        })
+        .catch((err) => console.log(err));
+};
+
+
+// function to fetch and send a single alphabet
+exports.getAllReports = (req, res, next) => {
+    const reportId = req.params.reportID;
+    // console.log(reportId);
+
+    Report.find()
+        .then((report) => {
+            if (!report) {
+                const responseBody = {
+                    message: "Reports not Found!",
                     status: "Failed",
                 };
 
