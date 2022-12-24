@@ -1,6 +1,6 @@
 const Report = require("../models/report");
 
-// function to fetch and send all alphabets
+// function to create and store a report
 exports.postReport = (req, res, next) => {
     const reportDetails = req.body.reportDetails;
 
@@ -90,7 +90,7 @@ exports.postReport = (req, res, next) => {
         });
 };
 
-// function to fetch and send a single alphabet
+// function to fetch and send a single reports
 exports.getReport = (req, res, next) => {
     const reportId = req.params.reportID;
     // console.log(reportId);
@@ -113,7 +113,7 @@ exports.getReport = (req, res, next) => {
 };
 
 
-// function to fetch and send a single alphabet
+// function to fetch and send all reports
 exports.getAllReports = (req, res, next) => {
     const reportId = req.params.reportID;
     // console.log(reportId);

@@ -7,7 +7,7 @@ const reportRoutes = require("./routes/reports");
 
 const MONGODB_URI =
     process.env.MONGODB_URI ||
-    "mongodb+srv://habeebullah:5Nuj1S4B4gg3RDAr@cluster0.jlzxi.mongodb.net/reportsDB";
+    "";
 const PORT = process.env.PORT || 3000;
 
 const app = express();
